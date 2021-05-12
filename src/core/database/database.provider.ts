@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Sequelize } from 'sequelize';
+import { Sequelize } from 'sequelize-typescript';
+// import { User } from 'src/module/users/user.entity';
 import { DEVELOPMENT, PRODUCTION, SEQUELIZE, TEST } from '../constants';
 import { databaseConfig } from './database.config';
 
@@ -21,7 +22,7 @@ export const databaseProviders = [
           config = databaseConfig.development;
       }
       const sequelize = new Sequelize(config);
-      // sequelize.addModels(['models goes here']);
+      sequelize.addModels(['']);
       await sequelize.sync();
       return sequelize;
     },
